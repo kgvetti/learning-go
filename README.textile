@@ -12,11 +12,19 @@ none yet
 
 h2. References
 
-A collection of _useful_ references directed toward continuous learning the Go programming language. 
+A collection of _useful_ references directed toward continuous learning the Go programming language.
 
 h3. Seminal
 
 * "Go Homepage":http://golang.org official
+* "Go Google Group":http://groups.google.com/group/golang-nuts 
+* "Go on Wikipedia":http://en.wikipedia.org/wiki/Go_(programming_language)
+* "Go Textmate Bundle":http://github.com/AlanQuatermain/go-tmbundle
+
+h3. Basics
+
+* "How to install the Go programming language on OSX Snow Leopard":http://jeremyhubert.com/articles/installing-google-go-on-osx-snow-leopard.html
+** Additionally, due to permission problems I had to build using: sudo -E ./all.bash
 
 
 h2. License
