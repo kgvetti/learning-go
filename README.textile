@@ -2,13 +2,23 @@ h1. Learning The Go Programming Language
 
 A sandbox for continuous learning of the Go Programming Language for Jason Brownlee. 
 
-h2. Objectives
-
-* Continue to improve at problem solving with Go through research and practice.
-
 h2. Scripts
 
-none yet
+Work product created while learning go
+
+h3. My Programs
+
+* *geneticalgorithm.go*: a simple genetic algorithm applied to the one max function
+
+h3. Tutorials 
+
+* *helloworld.go*: hello world 
+* *echo.go*: echo program
+
+h3. Other
+
+* *build.sh*: compiles and links a go file
+* *build.clean.sh*: deletes all .6 and .out files
 
 h2. References
 
@@ -17,6 +27,7 @@ A collection of _useful_ references directed toward continuous learning the Go p
 h3. Seminal
 
 * "Go Homepage":http://golang.org official
+** "Go Tutorial":http://golang.org/doc/go_tutorial.html
 * "Go Google Group":http://groups.google.com/group/golang-nuts 
 * "Go on Wikipedia":http://en.wikipedia.org/wiki/Go_(programming_language)
 * "Go Textmate Bundle":http://github.com/AlanQuatermain/go-tmbundle

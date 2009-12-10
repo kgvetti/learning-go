@@ -1,3 +1,7 @@
+// 
+//  hello world, from: http://golang.org/
+// 
+
 package main
 
 import "fmt"
