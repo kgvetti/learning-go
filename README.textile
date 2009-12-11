@@ -16,6 +16,7 @@ h3. Tutorials
 
 * *helloworld.go*: hello world 
 * *echo.go*: echo program
+* *primes.go*: example of searching for primes using channels and goroutines
 
 h3. Other
 
