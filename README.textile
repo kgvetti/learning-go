@@ -18,6 +18,7 @@ h3. Tutorials
 * *echo.go*: echo program
 * *primes.go*: example of searching for primes using channels and goroutines
 * *multiplexer.go*: example of implicit multiplexing using channels and goroutines
+* *webserver.go*: a simple webserver
 
 h3. Other
 

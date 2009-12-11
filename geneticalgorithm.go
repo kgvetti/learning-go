@@ -16,11 +16,16 @@ import (
 ) 
 
 //
-// interfaces
+// types
 //
 
+type Solution struct {
+	bitstring []bool;
+	score float;
+}
+
 type Problem interface {
-	Evaluate(candidate string) float;
+	Evaluate(candidate Solution) float;
 	GetProblemSize() int;
 	String() string;
 }
@@ -29,10 +34,6 @@ type Algorithm interface {
 	Run(p Problem) string;
 	String() string;
 }
-
-//
-// types
-//
 
 type GeneticAlgorithm struct {
 	crossover float;
@@ -50,10 +51,10 @@ type OneMax struct {
 // functions
 //
 
-func (problem *OneMax) Evaluate(candidate string) float {
+func (problem *OneMax) Evaluate(candidate []bool) float {
 	sum := 0.0;
 	for i := 0; i<problem.problemSize; i++ {
-		sum += (candidate[i] == '1') ? 0.0 : 1.0;
+		if candidate[i] { sum += 1.0;}
 	}
 	return sum;
 }
