@@ -31,7 +31,8 @@ func filter(in chan int, prime int) chan int {
 	return out;
 }
 
-// sieve function, returns a channel for ints
+// sieve function, returns a channel of ints full of primes
+// processes filters, creating a new one for each prime found
 func sieve() chan int {
 	out := make(chan int);
 	// inline function as a goroutine
@@ -46,7 +47,7 @@ func sieve() chan int {
 	return out;
 }
 
-// entry point, runs forever
+// entry point, runs forever, starts the sieving process and prints (consumes) the results
 func main() {
 	primes := sieve();
 	for {
