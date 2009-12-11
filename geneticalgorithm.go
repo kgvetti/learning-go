@@ -7,12 +7,14 @@
 // The algorithm is demonstrated on the OneMax problem.
 // 
 
+// uses many go features including types, objects, interfaces (polymorphism), channels, goroutines, and gc (lots of object creation)
 
 package main
 
 import (
-	"os"; 
-	"fmt"; // printf 
+	"fmt"; 
+	"rand";
+	"math";
 ) 
 
 //
@@ -20,18 +22,18 @@ import (
 //
 
 type Solution struct {
-	bitstring []bool;
+	bitstring *[]bool;
 	score float;
 }
 
 type Problem interface {
-	Evaluate(candidate Solution) float;
+	Evaluate(sol *Solution) float;
 	GetProblemSize() int;
 	String() string;
 }
 
 type Algorithm interface {
-	Run(p Problem) string;
+	Run(prob *Problem) string;
 	String() string;
 }
 
@@ -51,10 +53,20 @@ type OneMax struct {
 // functions
 //
 
-func (problem *OneMax) Evaluate(candidate []bool) float {
+// solution
+
+func (s *Solution) String() string {
+	return fmt.Sprintf("(%v) [%v]", s.score, s.bitstring);
+}
+
+// problem
+
+func (problem *OneMax) Evaluate(sol *Solution) float {
 	sum := 0.0;
 	for i := 0; i<problem.problemSize; i++ {
-		if candidate[i] { sum += 1.0;}
+		if sol.bitstring[i]==true { 
+			sum += 1.0;
+		}
 	}
 	return sum;
 }
@@ -67,6 +79,25 @@ func (problem *OneMax) String() string {
 	return fmt.Sprintf("OneMax, len=%v", problem.problemSize);
 }
 
+func (problem *OneMax) NewRandomSolution() *Solution {
+	s := new(Solution);
+	b := [(*problem).problemSize]bool{};
+	s.bitstring = &b;
+	s.score = math.NaN;
+	// populate with random values
+	for i:=0; i<len(s.bitstring); i++ {
+		s.bitstring = (rand.Intn(2) == 1);
+	}
+	return s;
+}
+
+func NewOneMax(size int) *OneMax {
+	p := new(OneMax);
+	p.problemSize = size;
+	return p;
+}
+
+// algorithm
 
 func (algorithm *GeneticAlgorithm) String() string {
 	return fmt.Sprintf("GeneticAlgorithm, cros=%v, muta=%v, bout=%v, size=%v, gen=%v", 
@@ -87,7 +118,7 @@ func (algorithm *GeneticAlgorithm) Run(problem Problem) string {
 		
 		// replace
 		
-		fmt.Printf(" > gen %v, best=%v [%v]\n", i, problem.Evaluate(best), best);
+		fmt.Printf(" > gen %v, best=%v\n", i, best);
 	}
 	
 	return best;
@@ -97,11 +128,19 @@ func (algorithm *GeneticAlgorithm) Run(problem Problem) string {
 // entry point
 //
 func main() {
+	fmt.PrintLine("Booting");	
+	
+	// seed the random number generator
+	// TODO
+	
+	// var s = bool[10];
 	
 	// create new objects on the heap
-	algorithm := new(GeneticAlgorithm);
-	problem := new(OneMax);
+	// algorithm := new(GeneticAlgorithm);
+	problem := NewOneMax(64);
 	
-	fmt.Printf("Hello, World\n");
+	s := problem.NewRandomSolution();
+	fmt.Printf("%v\n", s);
+	
 }
 

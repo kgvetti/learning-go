@@ -34,17 +34,18 @@ h3. Seminal
 * "Go Homepage":http://golang.org official
 ** "Go Tutorial":http://golang.org/doc/go_tutorial.html gentle introduction to the language
 ** "Effective Go":http://golang.org/doc/effective_go.html summary of types and language constructs 
+** "Go pkg API":http://golang.org/pkg/ - well, the closest thing we have to an API at this stage (beats reading src)
 * "Go Nuts":http://groups.google.com/group/golang-nuts a go user group on google groups
-* "Go on Wikipedia":http://en.wikipedia.org/wiki/Go_(programming_language)
-* "Go Language Resources":http://go-lang.cat-v.org/
-* "Go Programming Language: Tech Talk":http://www.youtube.com/watch?v=rKnDgT73v8s#t=8m53 google tech talk introducing the language
 
 h3. Basics
 
 * "How to install the Go programming language on OSX Snow Leopard":http://jeremyhubert.com/articles/installing-google-go-on-osx-snow-leopard.html
 ** Additionally, due to permission problems I had to build using: sudo -E ./all.bash
 * "Ready, Set, Go!":http://www.engineyard.com/blog/2009/ready-set-go/ Introduction and summary of go
+* "Google's New Language":http://scienceblogs.com/goodmath/2009/11/googles_new_language_go.php Go": (good math, bad math)
 * "Go Textmate Bundle":http://github.com/AlanQuatermain/go-tmbundle - the build in textmate doesn't work for me, i use scripts instead
+* "Go Language Resources":http://go-lang.cat-v.org/
+* "Go Programming Language: Tech Talk":http://www.youtube.com/watch?v=rKnDgT73v8s#t=8m53 google tech talk introducing the language
 
 h2. License
 
