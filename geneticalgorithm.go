@@ -10,4 +10,97 @@
 
 package main
 
+import (
+	"os"; 
+	"fmt"; // printf 
+) 
+
+//
+// interfaces
+//
+
+type Problem interface {
+	Evaluate(candidate string) float;
+	GetProblemSize() int;
+	String() string;
+}
+
+type Algorithm interface {
+	Run(p Problem) string;
+	String() string;
+}
+
+//
+// types
+//
+
+type GeneticAlgorithm struct {
+	crossover float;
+	mutation float;
+	bouts int;
+	populationSize int;
+	generations int;
+}
+
+type OneMax struct {
+	problemSize int;
+}
+
+//
+// functions
+//
+
+func (problem *OneMax) Evaluate(candidate string) float {
+	sum := 0.0;
+	for i := 0; i<problem.problemSize; i++ {
+		sum += (candidate[i] == '1') ? 0.0 : 1.0;
+	}
+	return sum;
+}
+
+func (problem *OneMax) GetProblemSize() int {
+	return problem.problemSize;
+}
+
+func (problem *OneMax) String() string {
+	return fmt.Sprintf("OneMax, len=%v", problem.problemSize);
+}
+
+
+func (algorithm *GeneticAlgorithm) String() string {
+	return fmt.Sprintf("GeneticAlgorithm, cros=%v, muta=%v, bout=%v, size=%v, gen=%v", 
+		algorithm.crossover, algorithm.mutation, algorithm.bouts, algorithm.populatonSize, algorithm.generations);
+}
+
+func (algorithm *GeneticAlgorithm) Run(problem Problem) string {
+	best := nil;
+	
+	// initialize
+	
+	for i:=0; i<algorithm.generations; i++ {
+		// evaluate
+		
+		// select
+		
+		// reproduce
+		
+		// replace
+		
+		fmt.Printf(" > gen %v, best=%v [%v]\n", i, problem.Evaluate(best), best);
+	}
+	
+	return best;
+}
+
+//
+// entry point
+//
+func main() {
+	
+	// create new objects on the heap
+	algorithm := new(GeneticAlgorithm);
+	problem := new(OneMax);
+	
+	fmt.Printf("Hello, World\n");
+}
 

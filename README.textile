@@ -2,7 +2,9 @@ h1. Learning The Go Programming Language
 
 A sandbox for continuous learning of the Go Programming Language for Jason Brownlee. 
 
-h2. Scripts
+Go is an emerging programming language by google (mountain view) intended for use in system-level programming, like C. It is compiled, has a scripting language like feel to the syntax, and does not require memory management as it uses a garbage collector at runtime. Go does have pointers and references, but there is no pointer arithmetic when working with arrays (use slices). There are strings that are immutable, and arrays that are mutable. It has support for concurrency built into the language with goroutines and channels.
+
+h2. Programs
 
 Work product created while learning go
 
@@ -27,16 +29,19 @@ A collection of _useful_ references directed toward continuous learning the Go p
 h3. Seminal
 
 * "Go Homepage":http://golang.org official
-** "Go Tutorial":http://golang.org/doc/go_tutorial.html
-* "Go Google Group":http://groups.google.com/group/golang-nuts 
+** "Go Tutorial":http://golang.org/doc/go_tutorial.html gentle introduction to the language
+** "Effective Go":http://golang.org/doc/effective_go.html summary of types and language constructs 
+* "Go Nuts":http://groups.google.com/group/golang-nuts a go user group on google groups
 * "Go on Wikipedia":http://en.wikipedia.org/wiki/Go_(programming_language)
-* "Go Textmate Bundle":http://github.com/AlanQuatermain/go-tmbundle
+* "Go Language Resources":http://go-lang.cat-v.org/
+* "Go Programming Language: Tech Talk":http://www.youtube.com/watch?v=rKnDgT73v8s#t=8m53 google tech talk introducing the language
 
 h3. Basics
 
 * "How to install the Go programming language on OSX Snow Leopard":http://jeremyhubert.com/articles/installing-google-go-on-osx-snow-leopard.html
 ** Additionally, due to permission problems I had to build using: sudo -E ./all.bash
-
+* "Ready, Set, Go!":http://www.engineyard.com/blog/2009/ready-set-go/ Introduction and summary of go
+* "Go Textmate Bundle":http://github.com/AlanQuatermain/go-tmbundle - the build in textmate doesn't work for me, i use scripts instead
 
 h2. License
 
