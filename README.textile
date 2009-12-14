@@ -10,7 +10,8 @@ Work product created while learning go
 
 h3. My Programs
 
-* *geneticalgorithm.go*: a simple genetic algorithm applied to the one max function
+* *geneticalgorithm.go*: a simple genetic algorithm applied to the one max function (procedural)
+* *geneticalgorithm-oo.go*: a simple genetic algorithm applied to the one max function (object oriented)
 
 h3. Tutorials 
 
