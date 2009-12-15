@@ -48,6 +48,10 @@ h3. Basics
 * "Go Language Resources":http://go-lang.cat-v.org/
 * "Go Programming Language: Tech Talk":http://www.youtube.com/watch?v=rKnDgT73v8s#t=8m53 google tech talk introducing the language
 
+h3. Other
+
+* "Why Google's Go is a Bore":http://monoc.mo.funpic.de/go-rant/
+
 h2. License
 
 (The MIT License)
