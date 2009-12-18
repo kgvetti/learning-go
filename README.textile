@@ -43,7 +43,7 @@ h3. Basics
 * "How to install the Go programming language on OSX Snow Leopard":http://jeremyhubert.com/articles/installing-google-go-on-osx-snow-leopard.html
 ** Additionally, due to permission problems I had to build using: sudo -E ./all.bash
 * "Ready, Set, Go!":http://www.engineyard.com/blog/2009/ready-set-go/ Introduction and summary of go
-* "Google's New Language":http://scienceblogs.com/goodmath/2009/11/googles_new_language_go.php: (good math, bad math)
+* "Google's New Language":http://scienceblogs.com/goodmath/2009/11/googles_new_language_go.php (good math, bad math)
 * "Go Textmate Bundle":http://github.com/AlanQuatermain/go-tmbundle - the build in textmate doesn't work for me, i use scripts instead
 * "Go Language Resources":http://go-lang.cat-v.org/
 * "Go Programming Language: Tech Talk":http://www.youtube.com/watch?v=rKnDgT73v8s#t=8m53 google tech talk introducing the language
