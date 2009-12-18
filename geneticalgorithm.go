@@ -19,14 +19,13 @@ import (
 	"time";
 )
 
-
 // algorithm configuration
 const (
 	ProblemNumBits = 64;
-	ProbCrossover = 0.98;
-	ProbMutation = 1.0/ProblemNumBits;
-	SelectionNumBouts = 3;
-	PopulationSize = 50;
+	ProbCrossover = 0.98; // [0,1]
+	ProbMutation = 1.0/ProblemNumBits; // [0,1]
+	SelectionNumBouts = 3; // <=PopulationSize
+	PopulationSize = 50; // expect even
 	AlgorithmNumGenerations = 50;
 )
 
@@ -123,9 +122,8 @@ func Mutate(candidate *Solution) {
 	}
 }
 
-func MakeChildren(parent1 *Solution, parent2 *Solution) (*Solution, *Solution) {
-	child1 := NewSolution();
-	child2 := NewSolution();
+func Crossover(parent1 *Solution, parent2 *Solution) (*Solution, *Solution) {
+	child1, child2 := NewSolution(), NewSolution();
 	// crossover point
 	var pt = rand.Intn(len(parent1.bitstring));
 	useCrossover := true;
@@ -133,33 +131,35 @@ func MakeChildren(parent1 *Solution, parent2 *Solution) (*Solution, *Solution) {
 	// can we use slices?
 	for i:=0; i<len(parent1.bitstring); i++ {
 		if useCrossover && i<pt {
-			child1.bitstring[i] = parent1.bitstring[i];
-			child2.bitstring[i] = parent2.bitstring[i];
+			child1.bitstring[i],child2.bitstring[i] = parent1.bitstring[i],parent2.bitstring[i];
 		} else {
-			child1.bitstring[i] = parent2.bitstring[i];
-			child2.bitstring[i] = parent1.bitstring[i];
+			child1.bitstring[i],child2.bitstring[i] = parent2.bitstring[i],parent1.bitstring[i];
 		}
 	}
-	// perform mutation
-	Mutate(child1);
-	Mutate(child2);
 
 	return child1, child2;
 }
+
+func MakeChildren(parent1 *Solution, parent2 *Solution, channel chan *Solution) {
+	// crossover
+	child1, child2 := Crossover(parent1, parent2); 
+	// perform mutation
+	Mutate(child1);
+	Mutate(child2);
+	// push out results
+	channel<-child1; 
+	channel<-child2;
+}	
 
 func Reproduce(population *list.List) (*list.List) {
 	children := list.New();
 	channel := make(chan *Solution, population.Len()); // with buffer
 	
 	// evaluate the population in parallel
-	for e1 := population.Front(); e1 != nil; e1 = e1.Next() {
-		var e2 = e1.Next();
-		if(e2 == nil) {e2 = population.Front();} // odd pop num case
+	for e1:=population.Front(); e1 != nil; e1=e1.Next() {
+		e2 := e1.Next(); // expects even pop size		
 		// reproduce in parallel
-		// go func() {
-			child1, child2 := MakeChildren(e1.Value.(*Solution), e2.Value.(*Solution)); 
-			channel<-child1; channel<-child2;
-		// }();
+		go MakeChildren(e1.Value.(*Solution), e2.Value.(*Solution), channel);		
 		// ensure we end safely
 		e1 = e2;
 	}
