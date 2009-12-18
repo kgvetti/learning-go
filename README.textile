@@ -11,6 +11,7 @@ Work product created while learning go
 h3. My Programs
 
 * *geneticalgorithm.go*: a simple genetic algorithm applied to the one max function (procedural)
+** See my blog post "A Genetic Algorithm in Google's Go Language":http://www.neverreadpassively.com/2009/12/genetic-algorithm-in-googles-go.html
 
 h3. Tutorials 
 
